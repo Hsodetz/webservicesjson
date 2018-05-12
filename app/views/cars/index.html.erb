@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="ui center aligned header">Carros</h1>
+
+<table class="ui compact celled table blue center aligned">
+  <thead>
+    <tr style="font-size: 20px;">
+      <th>Marca</th>
+      <th>Modelo</th>
+      <th>Color</th>
+      <th>Hp</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cars.each do |car| %>
+      <tr>
+        <td><%= car.marca %></td>
+        <td><%= car.modelo %></td>
+        <td><%= car.color %></td>
+        <td><%= car.hp %></td>
+        <td>
+          <%= link_to car, class: "ui blue label" do %>
+            <i class="eye icon"> Ver </i>
+          <% end %>
+
+          <%= link_to edit_car_path(car), class: "ui orange label" do %>
+            <i class="edit outline icon"> Editar </i>
+          <% end %>
+    
+          <%= link_to car, method: :delete, data: { title: "Eliminar carro #{car.marca} #{car.modelo}", confirm: 'Estas Seguro?', commit: "Eliminar" }, class: "ui red label" do %>
+            <i class="trash alternate outline icon"> Eliminar </i>
+          <% end %>
+       </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<br>
+
+<%= link_to 'Crear Auto', new_car_path, class: "ui pointing blue basic label" %>
+

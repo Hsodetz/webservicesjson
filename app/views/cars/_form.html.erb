@@ -1,0 +1,39 @@
+<div class="ui form">
+<%= form_for(car) do |f| %>
+  <% if car.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(car.errors.count, "error") %> prohibited this car from being saved:</h2>
+
+      <ul>
+      <% car.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :marca %>
+    <%= f.text_field :marca %>
+  </div>
+
+  <div class="field">
+    <%= f.label :modelo %>
+    <%= f.text_field :modelo %>
+  </div>
+
+  <div class="field">
+    <%= f.label :color %>
+    <%= f.text_field :color %>
+  </div>
+
+  <div class="field">
+    <%= f.label :hp %>
+    <%= f.number_field :hp %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit button, class: "ui button blue" %>
+  </div>
+<% end %>
+</div>
